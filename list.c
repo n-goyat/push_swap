@@ -11,66 +11,25 @@ t_clst	*new_node(int	value)
 	return (new);
 }
 
-//t_stcks	*init_list(int argc, char **argv, t_stcks *stacks)
-//{
-//	int count;
-//	t_clst *tmp;
-//	t_clst *head;
-//
-//	stacks->stack_b = NULL;
-//	stacks->size_b = 0;
-//	stacks->size_a = argc - 1;
-//	if (argc == 2)
-//		count = 0;
-//	else
-//		count = 1;
-//	stacks->stack_a = new_node(ft_atoi(argv[count]));
-//	if (!stacks->stack_a)
-//		return (NULL);
-//	head = stacks->stack_a;
-//	tmp = stacks->stack_a;
-//	while (++count < argc) {
-//		tmp->next = new_node(ft_atoi(argv[count]));
-//		if (!tmp->next) {
-//			// Handle memory cleanup if allocation fails
-//			free_stack(stacks);
-//			return (NULL);
-//		}
-//		tmp = tmp->next;
-//	}
-//	tmp->next = head; // Make the list circular
-//	return (stacks);
-//}
-void create_circular_list(int argc, char **argv, t_stcks *stacks, int count)
+t_stcks	*init_list(int argc, char **argv, t_stcks *stacks)
 {
-    t_clst *tmp;
-    t_clst *head;
-    stacks->stack_a = new_node(ft_atoi(argv[count]));
-    if (!stacks->stack_a)
-        return;
-    head = stacks->stack_a;
-    tmp = stacks->stack_a;
-    while (++count < argc)
-    {
-        tmp->next = new_node(ft_atoi(argv[count]));
-        if (!tmp->next)
-        {
-            free_stack(stacks);
-            return;
-        }
-        tmp = tmp->next;
-    }
-    tmp->next = head;
-}
+	int		count;
+	t_clst	*tmp;
 
-t_stcks *init_list(int argc, char **argv, t_stcks *stacks)
-{
-    stacks->stack_b = NULL;
-    stacks->size_b = 0;
-    stacks->size_a = argc - 1;
-    int count = (argc == 2) ? 0 : 1;
-    create_circular_list(argc, argv, stacks, count);
-    return (stacks);
+	stacks->stack_b = NULL;
+	stacks->size_b = 0;
+	stacks->size_a = argc - 1;
+	count = 1;
+	stacks->stack_a = new_node(ft_atol(argv[count]));
+	tmp = stacks->stack_a;
+	while (argv[++count])
+	{
+		tmp->next = new_node(ft_atol(argv[count]));
+		tmp = tmp->next;
+	}
+	tmp->next = stacks->stack_a;
+	stacks->stack_a = tmp;
+	return (stacks);
 }
 
 void	free_stack(t_stcks *stacks)

@@ -13,10 +13,8 @@ void	rev_rot_a(t_stcks *stacks, int print)
 		}
 		stacks->stack_a = tmp;
 		if (print) {
-        ft_putstr_fd("pa\n", 1);
-        print_stack(stacks->stack_a, stacks->size_a, "Stack A");
-        print_stack(stacks->stack_b, stacks->size_b, "Stack B");
-    }
+		ft_putstr_fd("rra\n", 1);
+	}
 	}
 }
 
@@ -33,10 +31,8 @@ void	rev_rot_b(t_stcks *stacks, int print)
 		}
 		stacks->stack_b = tmp;
 		if (print) {
-        ft_putstr_fd("pa\n", 1);
-        print_stack(stacks->stack_a, stacks->size_a, "Stack A");
-        print_stack(stacks->stack_b, stacks->size_b, "Stack B");
-    }
+		ft_putstr_fd("rrb\n", 1);
+	}
 	}
 }
 
@@ -47,9 +43,7 @@ void	rrr(t_stcks *stacks, int print)
 		rev_rot_a(stacks, 0);
 		rev_rot_b(stacks, 0);
 		if (print) {
-        ft_putstr_fd("pa\n", 1);
-        print_stack(stacks->stack_a, stacks->size_a, "Stack A");
-        print_stack(stacks->stack_b, stacks->size_b, "Stack B");
-    }
+		ft_putstr_fd("rrr\n", 1);
+	}
 	}
 }

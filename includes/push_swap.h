@@ -91,5 +91,6 @@ int		*allocate_and_parse_single_argument(int argc, char *argv[]);
 int		handle_single_argument(int argc, char *argv[], t_stcks *stacks);
 long long	ft_atol(const char *str);
 int		has_duplicates(int *arr, int size);
+//void print_stack(t_clst *stack, int size, char *stack_name);
 
 #endif

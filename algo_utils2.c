@@ -77,22 +77,22 @@ void	move_to_min(t_stcks *stacks)
 
 void	find_min_max(t_stcks *stacks)
 {
-	int	ops_min;
-	int	ops_max;
+	int	pos_min;
+	int	pos_max;
 
-	ops_min = 0;
-	ops_max = 0;
+	pos_min = 0;
+	pos_max = 0;
 	stacks->pos_min = find_min(stacks->stack_b);
 	stacks->pos_max = find_max(stacks->stack_b);
 	if (stacks->pos_min > (stacks->size_b / 2))
-		ops_min = (stacks->size_b - stacks->pos_min);
+		pos_min = (stacks->size_b - stacks->pos_min);
 	else
-		ops_min = stacks->pos_min;
+		pos_min = stacks->pos_min;
 	if (stacks->pos_max > (stacks->size_b / 2))
-		ops_max = (stacks->size_b - stacks->pos_max);
+		pos_max = (stacks->size_b - stacks->pos_max);
 	else
-		ops_max = stacks->pos_max;
-	if (ops_min < ops_max)
+		pos_max = stacks->pos_max;
+	if (pos_min < pos_max)
 		push_min_max(stacks, stacks->pos_min);
 	else
 		push_min_max(stacks, stacks->pos_max);
